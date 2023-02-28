@@ -16,6 +16,7 @@ api/user_guide_src/cilexer/dist/*
 api/user_guide_src/cilexer/pycilexer.egg-info/*
 api//vendor/
 
+api/application/config/database.php
 # IDE Files
 #-------------------------
 api//nbproject/
@@ -27,6 +28,6 @@ api/*.tmPreferences.cache
 api/*.stTheme.cache
 api/*.sublime-workspace
 api/*.sublime-project
-api//tests/tests/
-api//tests/results/
+api/tests/tests/
+api/tests/results/
 
