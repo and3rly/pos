@@ -5,7 +5,7 @@ class Tipo_model extends General_model {
 	public $nombre;
 	public $activo = 1;
 
-	public function __construct()
+	public function __construct($id='')
 	{
 		parent::__construct();
 		if (!empty($id)) {
