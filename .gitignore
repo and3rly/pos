@@ -34,7 +34,7 @@ api/tests/results/
 # ---------- Interfaz ----------
 interfaz/.DS_Store
 interfaz/node_modules
-interfaz//dist
+interfaz/dist
 
 # local env files
 interfaz/.env.local
