@@ -5,7 +5,19 @@ if (!function_exists('dato_requerido')) {
 	function dato_requerido($datos=[], $tipo=0)
 	{
 		switch ($tipo) {
-			
+			case 1:
+				$obligatorios =  [
+					'nombre' => 'Nombre proveedor'
+				];
+			break;
+			case 2:
+				$obligatorios = [
+					'nombre' => "Nombre sucursal",
+					'direccion' => "Dirección sucursal",
+					'empresa_id' => "Empresa"
+				];
+			break;
+
 			default:
 				return false;
 				break;

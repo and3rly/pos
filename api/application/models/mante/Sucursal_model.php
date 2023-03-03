@@ -16,6 +16,25 @@ class Sucursal_model extends General_model {
 		}
 	}
 
+	public function existe_sucursal($args=[])
+	{
+		if ($this->getPK()) {
+			$this->db->where("id <> ", $this->getPK());
+		}
+
+		$tmp = $this->db
+		->where('nombre', $args->nombre)
+		->where('direccion', $args->direccion)
+		->where('activo', 1)
+		->get($this->_tabla);
+
+		if ($tmp->num_rows() > 0) {
+			return true;
+		}
+
+		return false;
+	}
+
 }
 
 /* End of file Sucursal_model.php */

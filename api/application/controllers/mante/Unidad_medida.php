@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Tipo extends CI_Controller {
+class Unidad_medida extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('mante/Tipo_model');
 		$this->output->set_content_type('application/json');
+		$this->load->model('mante/Unidad_medida_model');
 	}
 
 	public function index()
@@ -14,11 +14,10 @@ class Tipo extends CI_Controller {
 		$this->output->set_status_header('404');
 	}
 
-
 	public function buscar() 
 	{
 		$this->output->set_output(json_encode([
-			'lista' => $this->Tipo_model->buscar($_GET)
+			'lista' => $this->Unidad_medida_model->buscar($_GET)
 		]));
 	}
 
@@ -29,26 +28,27 @@ class Tipo extends CI_Controller {
 
 		if (verPropiedad($datos, 'nombre')) {
 
-			$tipo = new Tipo_model($id);
+			$Unidad_medida = new Unidad_medida_model($id);
 
-			if ($tipo->guardar($datos)) {
+			if ($Unidad_medida->guardar($datos)) {
 
 				$data['exito'] = 1;
 				$texto = empty($id) ? 'guardado':'actualizado';
 				$data['mensaje'] = "Registro {$texto} con éxito";
 
 			} else {
-				$data['mensaje'] = $tipo->getMensaje();
+				$data['mensaje'] = $Unidad_medida->getMensaje();
 			}
 
 		} else {
-			$data['mensaje'] = "Complete la siguiente información: nombre del tipo de producto";
+			$data['mensaje'] = "Complete la siguiente información: nombre de la unidad de medida";
 		}
 		
 		$this->output->set_output(json_encode($data));
 		
 	}
+
 }
 
-/* End of file Tipo.php */
-/* Location: ./application/controllers/Tipo.php */
+/* End of file Unidad_medida.php */
+/* Location: ./application/controllers/Unidad_medida.php */
